@@ -1,0 +1,26 @@
+# Electron binaries
+electron.exe
+*.dll
+*.pak
+*.bin
+*.dat
+icudtl.dat
+version
+snapshot_blob.bin
+v8_context_snapshot.bin
+chrome_100_percent.pak
+chrome_200_percent.pak
+
+# Locales
+locales/
+en-US.pak
+
+# Icons
+tray.ico
+
+# Build output
+dist/
+out/
+*.zip
+*.tar.gz
+*.7z
