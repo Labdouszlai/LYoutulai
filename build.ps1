@@ -11,7 +11,8 @@ if (!(Test-Path $Dist)) { New-Item -ItemType Directory -Path $Dist | Out-Null }
 
 $SourceFiles = @(
   "YTMDesktop.bat",
-  "README.md"
+  "README.md",
+  "tray.ico"
 )
 
 function Build-Portable {
@@ -35,11 +36,6 @@ function Build-Portable {
   
   Copy-Item -Recurse (Join-Path $resSrc "app") (Join-Path $resDst "app")
   Copy-Item -Recurse (Join-Path $resSrc "renderer") (Join-Path $resDst "renderer")
-  
-  # Copy icon
-  if (Test-Path (Join-Path $resSrc "tray.ico")) {
-    Copy-Item (Join-Path $resSrc "tray.ico") $OutDir
-  }
   
   if ($Arch -eq "x64") {
     # Use the existing electron.exe (assumed x64)
@@ -65,11 +61,11 @@ function Build-Portable {
     }
   } else {
     # x86: download 32-bit Electron
-    $url = "https://github.com/electron/electron/releases/download/v40.0.0/electron-v40.0.0-win32-ia32.zip"
-    $zip = Join-Path $Dist "electron-v40.0.0-win32-ia32.zip"
+    $url = "https://github.com/electron/electron/releases/download/v40.4.0/electron-v40.4.0-win32-ia32.zip"
+    $zip = Join-Path $Dist "electron-v40.4.0-win32-ia32.zip"
     
     if (!(Test-Path $zip)) {
-      Write-Host "Downloading Electron v40.0.0 for win32-ia32..." -ForegroundColor Yellow
+      Write-Host "Downloading Electron v40.4.0 for win32-ia32..." -ForegroundColor Yellow
       try {
         Invoke-WebRequest -Uri $url -OutFile $zip -UseBasicParsing -ErrorAction Stop
       } catch {
