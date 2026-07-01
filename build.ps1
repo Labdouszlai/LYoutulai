@@ -55,7 +55,7 @@ class Launcher {
 }
 '@
   $launcherOut = Join-Path $Root "LYoutulai.exe"
-  $null = Add-Type -TypeDefinition $code -OutputAssembly $launcherOut -OutputType ConsoleApplication -ErrorAction Stop
+  $null = Add-Type -TypeDefinition $code -OutputAssembly $launcherOut -OutputType WindowsApplication -ErrorAction Stop
   & (Join-Path $Root "rcedit.exe") $launcherOut --set-icon (Join-Path $Root "resources\app\icon.ico") 2>&1 | Out-Null
   if (Test-Path $launcherOut) {
     Write-Host "  LYoutulai.exe compiled with icon" -ForegroundColor Green
