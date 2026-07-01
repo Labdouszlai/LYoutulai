@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>YouTube Music Desktop App - Settings</title>
+    <script type="module" crossorigin src="../../assets/settings_window-CbBTSE_N.js"></script>
+    <link rel="modulepreload" crossorigin href="../../assets/vue-C7mjZ8gN.js">
+    <link rel="modulepreload" crossorigin href="../../assets/TitleBar-CfiG7ASt.js">
+    <link rel="modulepreload" crossorigin href="../../assets/ytmd-BKl-2YOU.js">
+    <link rel="stylesheet" crossorigin href="../../assets/TitleBar-B4LK7xyx.css">
+    <link rel="stylesheet" crossorigin href="../../assets/settings_window-DzcSHU5e.css">
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+      // Lightweight mode feature by l'abdouszlai
+      (function() {
+        function renameHardwareAccelLabel() {
+          var paragraphs = document.querySelectorAll('p');
+          for (var i = 0; i < paragraphs.length; i++) {
+            if (paragraphs[i].textContent.trim().startsWith('Disable hardware acceleration')) {
+              var firstText = paragraphs[i].childNodes[0];
+              if (firstText) firstText.textContent = 'Enable lightweight mode ';
+            }
+          }
+        }
+        setInterval(renameHardwareAccelLabel, 500);
+      })();
+    </script>
+  </body>
+</html>

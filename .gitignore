@@ -1,0 +1,25 @@
+# Electron runtime
+runtime/
+
+# Launcher
+LYoutulai.exe
+
+# rcedit tool
+rcedit.exe
+
+# Electron binaries
+*.dll
+*.pak
+*.bin
+*.dat
+version
+
+# Icons
+tray.ico
+
+# Build output
+dist/
+out/
+*.zip
+*.tar.gz
+*.7z
